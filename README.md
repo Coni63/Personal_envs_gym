@@ -6,16 +6,15 @@ Currently, there is:
 
 - 2048 ("2048-v0")
 
-![2048](https://github.com/Coni63/Personal_envs_gym/blob/master/img/2048.jpg | height=300)
+<img src="https://github.com/Coni63/Personal_envs_gym/blob/master/img/2048.jpg" alt="2048" height="300"/>
 
 - Sliding puzzle ("Sliding-v0")
 
-![Sliding](https://github.com/Coni63/Personal_envs_gym/blob/master/img/sliding.png | height=300)
+<img src="https://github.com/Coni63/Personal_envs_gym/blob/master/img/sliding.png" alt="Sliding" height="300"/>
 
 - Minesweeper ("Mine-v0")
 
-![Minesweeper](https://github.com/Coni63/Personal_envs_gym/blob/master/img/minesweeper.jpg | height=300)
-
+<img src="https://github.com/Coni63/Personal_envs_gym/blob/master/img/minesweeper.jpg " alt="Minesweeper" height="300"/>
 
 ## How to use
 
