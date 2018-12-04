@@ -29,6 +29,38 @@ from gym_2048_env.envs.game2048_env import Game2048Env
 env = gym.make("2048-v0")
 ```
 
+*Attention* : For the Minesweeper you chan change the difficulty as you want but you should create the renderer afterward :
+
+```
+import gym
+from minesweeper_env.envs.minesweeper_env import MinesweeperEnv
+from minesweeper_env.envs.renderer import Renderer
+
+easy = {"width":8, "height":8, "num_mines":10}
+medium = {"width":16, "height":16, "num_mines":40}
+hard = {"width":16, "height":30, "num_mines":99}
+
+env = gym.make("Mine-v0")
+env.env.set_difficulty(**hard)
+viewer = Renderer(env.env, show_bomb = True)   # always create the rendered after the difficulty
+
+viewer.start()
+
+for i in range(10):
+    env.reset()
+    viewer.update()
+    while True:
+        obs, reward, done, info = env.step(env.env.sample())
+        # test_prob = np.random.random(obs.shape)
+        # viewer.update(probs = test_prob)
+        viewer.update()
+        if done:
+            print(info)
+            break
+
+# viewer.finish()
+```
+
 #### Playing
 
 Each environments have the following methods:

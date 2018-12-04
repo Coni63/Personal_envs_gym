@@ -14,15 +14,13 @@ class MinesweeperEnv(gym.Env):
     PROGRESSREWARD = 1
     INVALIDREWARD = 0
 
-    def __init__(self, width=8, height=8, num_mines=10, seed = None):
-        np.random.seed(seed)
-        self.num_mines = min(num_mines, width * height // 4)
-        self.width = width
-        self.height = height
-        self.num_safe_squares = self.width * self.height - self.num_mines
-        if num_mines > width * height // 4:
-            print("Too much bombs - reduced to {}".format(self.num_mines), file=sys.stderr)
-        self.reset()
+    def __init__(self):
+        self.seed()
+        self.set_difficulty()      
+
+    def seed(self, seed=None):
+        self.np_random, seed = seeding.np_random(seed)
+        return [seed]
 
     def step(self, pos):
         """
@@ -65,6 +63,15 @@ class MinesweeperEnv(gym.Env):
         self.explosion = False
         return self.grid
 
+    def set_difficulty(self, width=8, height=8, num_mines=10):
+        self.num_mines = min(num_mines, width * height // 4)
+        self.width = width
+        self.height = height
+        self.num_safe_squares = self.width * self.height - self.num_mines
+        if num_mines > width * height // 4:
+            print("Too much bombs - reduced to {}".format(self.num_mines), file=sys.stderr)
+        self.reset()
+        
     @property
     def num_exposed_squares(self):
         return (self.grid >= 0).sum()
