@@ -50,6 +50,9 @@ class Game2048Env(gym.Env):
         self.np_random, seed = seeding.np_random(seed)
         return [seed]
 
+    def sample(self):
+        return np.random.randint(4)
+
     # Implement gym interface
     def step(self, action):
         """Perform one step of the game. This involves moving and adding a new tile."""

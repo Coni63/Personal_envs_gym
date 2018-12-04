@@ -109,6 +109,9 @@ class SlidingEnv(gym.Env):
                 break
         return grid
 
+    def sample(self):
+        return np.random.randint(4)
+
     def reset(self):
         self.obs = self.generate(self.size)
         self.compute_metric()

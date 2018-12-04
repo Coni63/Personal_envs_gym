@@ -24,11 +24,13 @@ class MinesweeperEnv(gym.Env):
             print("Too much bombs - reduced to {}".format(self.num_mines), file=sys.stderr)
         self.reset()
 
-    def step(self, row, col):
+    def step(self, pos):
         """
         Select a square to expose. Coordinates are zero based.
         Return the new state, reward, done and info as per gym's rules
         """
+        row, col = pos
+
         if self._is_outside_board(row, col):
             print("Position {}, {} is outside the grid".format(row, col), file = sys.stderr)
             return self.grid, self.INVALIDREWARD, self._is_game_over(), self._get_info()

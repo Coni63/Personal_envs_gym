@@ -53,4 +53,4 @@ The game of 2048 is a modified version of the one from [Rgal](https://github.com
 
 ## To be done
 
-Nearly all environments needs to have a better _render_ method. Only Sliding_env have a rendering using the renderer of Gym but the quality is not perfect.
+Nearly all environments needs to have a better _render_ method. Currently it's an external file using pygame to have a visual. 
