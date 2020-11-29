@@ -106,7 +106,7 @@ class MinesweeperEnv(gym.Env):
             (row_, col_) = queue.pop()
             self.grid[row_, col_] = self.counts[row_, col_]
             if self.counts[row_, col_] == 0:
-                for col_offset, row_offset in [[1, 0], [-1, 0], [0, 1], [0, -1]]:
+                for col_offset, row_offset in [[1, -1], [1, 1], [1, 0], [-1, 0], [-1, -1], [-1, 1], [0, 1], [0, -1]]:
                     new_row, new_col = row_ + row_offset, col_ + col_offset
                     if not self._is_outside_board(new_row, new_col):
                         if not self._is_visible(new_row, new_col) :
